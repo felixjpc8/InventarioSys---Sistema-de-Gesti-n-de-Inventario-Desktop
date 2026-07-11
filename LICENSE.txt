@@ -1,0 +1,5 @@
+InventarioSys Desktop — Sistema de Gestión de Inventario
+Copyright (c) 2026
+
+Este software es de uso privado.
+Todos los derechos reservados.

@@ -1,0 +1,51 @@
+{
+  "name": "inventariosys-desktop",
+  "version": "1.0.0",
+  "description": "InventarioSys — Sistema de Inventario para Escritorio",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.inventariosys.desktop",
+    "productName": "InventarioSys",
+    "copyright": "InventarioSys",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "InventarioSys",
+      "license": "LICENSE.txt"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "splash.html",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "php-src/",
+        "to": "php-src/",
+        "filter": [
+          "**/*",
+          "!**/*.log",
+          "!**/.git/**",
+          "!**/node_modules/**"
+        ]
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}

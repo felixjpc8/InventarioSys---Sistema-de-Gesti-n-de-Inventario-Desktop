@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    overflow: hidden;
+    -webkit-app-region: drag;
+    user-select: none;
+  }
+  .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 12px rgba(99,179,237,.5));
+    animation: pulse 2s ease-in-out infinite;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #e2e8f0;
+    margin-bottom: 4px;
+  }
+  .sub {
+    font-size: 11px;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    margin-bottom: 36px;
+  }
+  .bar-wrap {
+    width: 240px; height: 4px;
+    background: rgba(255,255,255,.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+    animation: load 3s ease forwards;
+  }
+  .status {
+    font-size: 11px;
+    color: #475569;
+    letter-spacing: 0.3px;
+  }
+  @keyframes load {
+    0%   { width: 0% }
+    30%  { width: 45% }
+    60%  { width: 72% }
+    85%  { width: 90% }
+    100% { width: 100% }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+</style>
+</head>
+<body>
+  <div class="icon">📦</div>
+  <h1>InventarioSys</h1>
+  <p class="sub">Sistema de Gestión de Inventario</p>
+  <div class="bar-wrap"><div class="bar"></div></div>
+  <p class="status" id="st">Iniciando aplicación...</p>
+  <script>
+    const msgs = [
+      'Iniciando servidor PHP...',
+      'Preparando base de datos...',
+      'Cargando módulos del sistema...',
+      '¡Listo! Abriendo InventarioSys...'
+    ];
+    let i = 0;
+    const el = document.getElementById('st');
+    const iv = setInterval(() => {
+      if (i < msgs.length - 1) { i++; el.textContent = msgs[i]; }
+      else clearInterval(iv);
+    }, 750);
+  </script>
+</body>
+</html>
